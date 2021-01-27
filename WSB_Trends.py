@@ -1,4 +1,14 @@
 import requests
+import praw
+
+reddit = praw.Reddit(
+    client_id='DfqePo7ZMhlddA',
+    client_secret='mXKFSAo-SgdAPj7mg2QsPl1SeDRQiA',
+    user_agent='MyBot/0.0.1'
+)
+
+for submission in reddit.subreddit("wallstreetbets").hot(limit=10):
+    print(submission.title)
 
 base_url = 'https://www.reddit.com/'
 
@@ -25,8 +35,8 @@ headers = {**headers, **{'Authorization': f"bearer {TOKEN}"}}
 
 base_url = 'https://oauth.reddit.com'
 
-response = requests.get(base_url + '/api/v1/me', headers=headers)
+response = requests.get(base_url + '/r/wallstreetbets/about/rules', headers=headers)
 
-if response.status_code == 200:
-    print(response.json()['name'], response.json()['comment_karma'])
+#if response.status_code == 200:
+    #print(response.json())
 
