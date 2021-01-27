@@ -1,14 +1,20 @@
 import requests
+import praw
 
 base_url = 'https://www.reddit.com/'
+
+USER_AGENT = "WSB_Trends_Bot/0.0.1"
 
 # note that CLIENT_ID refers to 'personal use script' and SECRET_TOKEN to 'token'
 auth = requests.auth.HTTPBasicAuth('DfqePo7ZMhlddA', 'mXKFSAo-SgdAPj7mg2QsPl1SeDRQiA')
 
 # here we pass our login method (password), username, and password
 data = {'grant_type': 'password',
+        'user_agent': None,
         'username': 'checkTheLeaderboard',
-        'password': 'MMl678CK1u$V'}
+        'password': 'MMl678CK1u$V', 
+        'client_id': None,
+        'client_secret': None}
 
 # setup our header info, which gives reddit a brief description of our app
 headers = {'User-Agent': 'MyBot/0.0.1'}
