@@ -4,6 +4,7 @@ import os
 import secrets as s
 import logging
 
+
 # Set up logging for debugging HTTP requests to the Reddit API
 if s.IS_DEBUG:
         handler = logging.StreamHandler()
@@ -16,6 +17,7 @@ if s.IS_DEBUG:
 
 
 BASE_URL = 'https://www.reddit.com'
+SUBREDDIT = "wallstreetbets"
 
 reddit = praw.Reddit(
         user_agent=s.USER_AGENT,
@@ -25,10 +27,14 @@ reddit = praw.Reddit(
         password=s.PASSWORD
 )
 
+subreddit = reddit.subreddit(SUBREDDIT).hot(limit=10)
 
-endpoint = "/user/moneymay195/comments"
-url = BASE_URL + endpoint
-submission = reddit.submission(url=url)
+for submission in subreddit:
+    print(submission.title)
+
+# endpoint = "/user/moneymay195/comments"
+# url = BASE_URL + endpoint
+# submission = reddit.submission(url=url)
 
 print("SUCCESS")
 
@@ -58,8 +64,15 @@ print("SUCCESS")
 
 # base_url = 'https://oauth.reddit.com'
 
+<<<<<<< HEAD
 # response = requests.get(base_url + '/api/v1/me', headers=headers)
 
 # if response.status_code == 200:
 #     print(response.json()['name'], response.json()['comment_karma'])
+=======
+response = requests.get(base_url + '/r/wallstreetbets/about/rules', headers=headers)
+
+#if response.status_code == 200:
+    #print(response.json())
+>>>>>>> master
 
