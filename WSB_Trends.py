@@ -64,15 +64,8 @@ print("SUCCESS")
 
 # base_url = 'https://oauth.reddit.com'
 
-<<<<<<< HEAD
-# response = requests.get(base_url + '/api/v1/me', headers=headers)
-
-# if response.status_code == 200:
-#     print(response.json()['name'], response.json()['comment_karma'])
-=======
-response = requests.get(base_url + '/r/wallstreetbets/about/rules', headers=headers)
+# response = requests.get(base_url + '/r/wallstreetbets/about/rules', headers=headers)
 
 #if response.status_code == 200:
     #print(response.json())
->>>>>>> master
 
