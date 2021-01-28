@@ -105,47 +105,18 @@ pdb.set_trace()
 # print(set(zip(ticks, nums)))
 
 
+<<<<<<< HEAD
 # data = {'comment': comment_arr}
 # df = pd.DataFrame(data=data)
+=======
+reddit = praw.Reddit(
+    client_id='DfqePo7ZMhlddA',
+    client_secret='mXKFSAo-SgdAPj7mg2QsPl1SeDRQiA',
+    user_agent='WSB Sentiment Analysis'
+)
+>>>>>>> 3d74b458e12da098a2bfb333cc98c622d35fa5f0
 
 # import pdb
 # pdb.set_trace()
 
-
-# endpoint = "/user/moneymay195/comments"
-# url = BASE_URL + endpoint
-# submission = reddit.submission(url=url)
-
-print("SUCCESS")
-
-# note that CLIENT_ID refers to 'personal use script' and SECRET_TOKEN to 'token'
-# auth = requests.auth.HTTPBasicAuth(s.CLIENT_ID, s.CLIENT_SECRET)
-
-# # here we pass our login method (password), username, and password
-# data = {'grant_type': 'password',
-#         'user_agent': s.USER_AGENT,
-#         'username': s.USERNAME,
-#         'password': s.PASSWORD, 
-#         'client_id': s.CLIENT_ID,
-#         'client_secret': s.CLIENT_SECRET}
-
-# # setup our header info, which gives reddit a brief description of our app
-# headers = {'User-Agent': s.USER_AGENT}
-
-# # send our request for an OAuth token
-# res = requests.post(base_url + 'api/v1/access_token',
-#                     auth=auth, data=data, headers=headers)
-
-# # convert response to JSON and pull access_token value
-# TOKEN = res.json()['access_token']
-
-# # add authorization to our headers dictionary
-# headers = {**headers, **{'Authorization': f"bearer {TOKEN}"}}
-
-# base_url = 'https://oauth.reddit.com'
-
-# response = requests.get(base_url + '/r/wallstreetbets/about/rules', headers=headers)
-
-#if response.status_code == 200:
-    #print(response.json())
 
