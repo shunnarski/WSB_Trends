@@ -16,7 +16,7 @@ if s.IS_DEBUG:
             logger.setLevel(logging.DEBUG)
             logger.addHandler(handler)
 
-
+print("hello")
 try: 
     BASE_URL = 'https://www.reddit.com'
     SUBREDDIT = "wallstreetbets"
