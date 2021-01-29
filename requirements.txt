@@ -1,0 +1,4 @@
+requests
+praw
+pandas==1.2.1
+ystockquote

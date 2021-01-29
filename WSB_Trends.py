@@ -105,16 +105,11 @@ pdb.set_trace()
 # print(set(zip(ticks, nums)))
 
 
-<<<<<<< HEAD
-# data = {'comment': comment_arr}
-# df = pd.DataFrame(data=data)
-=======
-reddit = praw.Reddit(
-    client_id='DfqePo7ZMhlddA',
-    client_secret='mXKFSAo-SgdAPj7mg2QsPl1SeDRQiA',
-    user_agent='WSB Sentiment Analysis'
-)
->>>>>>> 3d74b458e12da098a2bfb333cc98c622d35fa5f0
+# reddit = praw.Reddit(
+#     client_id='DfqePo7ZMhlddA',
+#     client_secret='mXKFSAo-SgdAPj7mg2QsPl1SeDRQiA',
+#     user_agent='WSB Sentiment Analysis'
+# )
 
 # import pdb
 # pdb.set_trace()
