@@ -16,7 +16,6 @@ if s.IS_DEBUG:
             logger.setLevel(logging.DEBUG)
             logger.addHandler(handler)
 
-print("hello")
 try: 
     BASE_URL = 'https://www.reddit.com'
     SUBREDDIT = "wallstreetbets"
@@ -40,7 +39,7 @@ try:
     subreddit = reddit.subreddit(SUBREDDIT).hot(limit=10)
 
     # Getting the top 200 comments
-    comments = reddit.subreddit(SUBREDDIT).comments(limit=100000)
+    comments = reddit.subreddit(SUBREDDIT).comments(limit=1000)
 
 
 except Exception as e:
@@ -56,6 +55,9 @@ for com in comment_arr:
     words = com.split(" ")
     word_arr.extend(words)
 
+x = list(filter(lambda word: len(word) != 0 and word[0] == '$', word_arr))
+
+print(len(x))
 
 # only get words where length is 1-5 characters long
 pot_tickers = list(filter(lambda word: len(word) < 6, word_arr))
@@ -87,11 +89,15 @@ data = {"pot_tickers": pot_tickers}
 df = pd.DataFrame(data=data)
 
 # get the csv with the list of stock tickers that currently exist
-tickers_file = "ticks.csv"
-stock_tickers = pd.read_csv(tickers_file)
+tickers_file = "nyse_ticks.csv"
+nyse_df = pd.read_csv(tickers_file)
+tickers_file = "nasdaq_ticks.csv"
+nasdaq_df = pd.read_csv(tickers_file)
+
+stock_tickers = pd.concat([nyse_df, nasdaq_df])
 
 # do an inner join on the ticker names so we are only left with legit stock tickers
-stock_tickers_wsb = pd.merge(left=df, right=stock_tickers, left_on="pot_tickers", right_on="ACT Symbol")['pot_tickers']
+stock_tickers_wsb = pd.merge(left=df, right=stock_tickers, left_on="pot_tickers", right_on="Symbol")['pot_tickers']
 
 # count up all the times the ticker appears in the dataframe
 vc_df = stock_tickers_wsb.value_counts(sort=True)
